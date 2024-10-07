@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TP01.MainPage">
+
+    <StackLayout Padding="20" Spacing="15" VerticalOptions="Center" BackgroundColor="Black">
+
+        <Label Text="Aplicação Teste"
+               TextColor="White"
+               FontSize="Title"
+               HorizontalOptions="Center"
+               Margin="0, 0, 0, 20"/>
+
+        <Grid Margin="0,0,0,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Text="ID:" TextColor="White"/>
+            <Entry x:Name="idEntry" Grid.Row="0" Grid.Column="1" TextColor="White" BackgroundColor="Gray" Margin="0,0,0,10"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Text="Pass:" TextColor="White"/>
+            <Entry x:Name="passwordEntry" Grid.Row="1" Grid.Column="1" TextColor="White" BackgroundColor="Gray"/>
+        </Grid>
+
+        <Button Text="OK" BackgroundColor="Gray" TextColor="DarkRed" Clicked="OnOkClicked" HeightRequest="50"/>
+
+        <Button Text="Limpar" BackgroundColor="Gray" TextColor="DarkRed" Clicked="OnClearClicked" HeightRequest="50"/>
+
+        <Button Text="Créditos" BackgroundColor="Gray" TextColor="DarkRed" Clicked="OnCreditsClicked" HeightRequest="50"/>
+    </StackLayout>
+</ContentPage>
+    
