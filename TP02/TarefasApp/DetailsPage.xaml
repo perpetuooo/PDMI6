@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TarefasApp.DetailsPage"
+             Title="Detalhes">
+
+    <ContentPage.Content>
+        <StackLayout Padding="10" Spacing="10">
+            <Label Text="{Binding Title}"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <Label Text="{Binding Description}"
+                   FontSize="18"
+                   TextColor="Gray" />
+
+            <Label Text="Data de Criação:"
+                   FontSize="16"
+                   FontAttributes="Bold" />
+            <Label Text="{Binding CreationDate, StringFormat='{0:dd/MM/yyyy}'}"
+                   FontSize="16" />
+
+            <Label Text="Prioridade:"
+                   FontSize="16"
+                   FontAttributes="Bold" />
+            <Label Text="{Binding Priority}"
+                   FontSize="16"
+                   TextColor="DarkRed" />
+
+            <Button Text="Editar"
+                    FontSize="16"
+                    HorizontalOptions="Center"
+                    Clicked="OnEditButtonClicked" />
+
+            <Button Text="Excluir"
+                    FontSize="16"
+                    HorizontalOptions="Center"
+                    TextColor="Red"
+                    Clicked="OnDeleteButtonClicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
