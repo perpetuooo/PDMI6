@@ -1,0 +1,86 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="P2.MainPage"
+             Title="Livros"
+             BackgroundColor="White">
+
+    <Grid RowDefinitions="Auto,*" Padding="20">
+        <VerticalStackLayout Spacing="15" Grid.Row="0">
+            <Button Text="Adicionar Livro" 
+                    Clicked="OnAddBookClicked"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="White"
+                    HeightRequest="50"
+                    CornerRadius="25"/>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="15">
+                <Button Grid.Column="0"
+                        Text="Ver Localização" 
+                        Clicked="OnViewLocationClicked"
+                        BackgroundColor="{StaticResource Secondary}"
+                        TextColor="White"
+                        HeightRequest="50"
+                        CornerRadius="25"/>
+
+                <Button Grid.Column="1"
+                        Text="Ver Créditos" 
+                        Clicked="OnViewCreditsClicked"
+                        BackgroundColor="{StaticResource Secondary}"
+                        TextColor="White"
+                        HeightRequest="50"
+                        CornerRadius="25"/>
+            </Grid>
+        </VerticalStackLayout>
+
+        <Frame Grid.Row="1" 
+               Margin="0,20,0,0"
+               Padding="0"
+               BorderColor="{StaticResource Gray300}"
+               BackgroundColor="White"
+               CornerRadius="10"
+               HasShadow="True">
+            <ListView x:Name="BooksListView"
+                      ItemTapped="OnBookSelected"
+                      ItemsSource="{Binding Books}"
+                      IsPullToRefreshEnabled="True"
+                      RefreshCommand="{Binding RefreshCommand}"
+                      IsRefreshing="{Binding IsRefreshing}"
+                      SelectionMode="None"
+                      SeparatorColor="{StaticResource Gray300}"
+                      BackgroundColor="Transparent">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10,15"
+                              ColumnDefinitions="2.5*,Auto" 
+                              ColumnSpacing="10"
+                              VerticalOptions="Center">
+                            <VerticalStackLayout Grid.Column="0" Spacing="5">
+                            <Label Text="{Binding Name}" 
+                               FontSize="16" 
+                               FontAttributes="Bold" 
+                               TextColor="Black"
+                               LineBreakMode="TailTruncation" />
+                            <Label Text="{Binding AuthorName}" 
+                               FontSize="14" 
+                               TextColor="{StaticResource Gray600}"
+                               LineBreakMode="TailTruncation" />
+                            </VerticalStackLayout>
+                            <Button Grid.Column="1"
+                                Text="DEL"
+                                HeightRequest="40"
+                                WidthRequest="60"
+                                BackgroundColor="Transparent"
+                                TextColor="Red"
+                                VerticalOptions="Center"
+                                HorizontalOptions="End"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=DeleteBookCommand}"
+                                CommandParameter="{Binding .}" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Frame>
+    </Grid>
+</ContentPage>

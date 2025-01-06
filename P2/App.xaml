@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="P2.App">
+    <Application.Resources>
+        <ResourceDictionary
+            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="Secondary">#4CAF50</Color
+
+            <Color x:Key="Gray100">#E5E5E5</Color>
+            <Color x:Key="Gray200">#CCCCCC</Color>
+            <Color x:Key="Gray300">#B3B3B3</Color>
+            <Color x:Key="Gray400">#999999</Color>
+            <Color x:Key="Gray500">#808080</Color>
+            <Color x:Key="Gray600">#666666</Color>
+
+            <Style TargetType="Button">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="CornerRadius" Value="25"/>
+                <Setter Property="Padding" Value="24,12"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

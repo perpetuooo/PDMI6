@@ -1,0 +1,79 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="P2.BookPage"
+             Title="Detalhes do Livro"
+             BackgroundColor="White">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Frame BorderColor="{StaticResource Gray300}" Padding="15" BackgroundColor="White" HasShadow="True">
+                <VerticalStackLayout Spacing="15">
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Nome do Livro" FontAttributes="Bold" TextColor="Black"/>
+                        <Entry x:Name="NameEntry"
+                               Placeholder="Digite o nome do livro"
+                               Text="{Binding Name}"
+                               TextChanged="OnTextChanged"
+                               TextColor="Black"/>
+                        <Label x:Name="NameError" 
+                               Text="Campo obrigatório"
+                               TextColor="Red"
+                               IsVisible="false"
+                               FontSize="12"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Nome do Autor" FontAttributes="Bold" TextColor="Black"/>
+                        <Entry x:Name="AuthorEntry"
+                               Placeholder="Digite o nome do autor"
+                               Text="{Binding AuthorName}"
+                               TextChanged="OnTextChanged"
+                               TextColor="Black"/>
+                        <Label x:Name="AuthorError"
+                               Text="Campo obrigatório"
+                               TextColor="Red"
+                               IsVisible="false"
+                               FontSize="12"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="E-mail do Autor" FontAttributes="Bold" TextColor="Black"/>
+                        <Entry x:Name="EmailEntry"
+                               Placeholder="Digite o e-mail do autor"
+                               Text="{Binding AuthorEmail}"
+                               Keyboard="Email"
+                               TextChanged="OnTextChanged"
+                               TextColor="Black"/>
+                        <Label x:Name="EmailError"
+                               Text="E-mail inválido"
+                               TextColor="Red"
+                               IsVisible="false"
+                               FontSize="12"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="ISBN" FontAttributes="Bold" TextColor="Black"/>
+                        <Entry x:Name="ISBNEntry"
+                               Placeholder="Digite o ISBN"
+                               Text="{Binding ISBN}"
+                               Keyboard="Numeric"
+                               TextChanged="OnTextChanged"
+                               TextColor="Black"/>
+                        <Label x:Name="ISBNError"
+                               Text="ISBN inválido"
+                               TextColor="Red"
+                               IsVisible="false"
+                               FontSize="12"/>
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button Text="Salvar"
+                    x:Name="SaveButton"
+                    Clicked="OnSaveClicked"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="White"
+                    HeightRequest="50"
+                    CornerRadius="25"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
